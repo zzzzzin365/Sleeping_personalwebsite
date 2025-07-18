@@ -51,7 +51,6 @@ body {
 .content-overlay {
   position: relative;
   z-index: 2;
-  background: rgba(20, 20, 20, 0.8);
   backdrop-filter: blur(1px);
 }
 
@@ -95,7 +94,7 @@ body {
 }
 
 .nav-links a:hover {
-  color: #00d4ff;
+
 }
 
 .nav-links a::after {
@@ -105,7 +104,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: #00d4ff;
+ 
   transition: width 0.3s ease;
 }
 
@@ -125,7 +124,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 100, 200, 0.1) 100%);
+  
 }
 
 .hero-content h1 {
@@ -144,7 +143,7 @@ body {
 }
 
 .cta-button {
-  background: linear-gradient(135deg, #00d4ff 0%, #0066cc 100%);
+ 
   color: white;
   border: none;
   padding: 1rem 2rem;
