@@ -6,7 +6,6 @@ import TextType from './TextType';
 import CircularText from './CircularText';
 import TiltedCard from './TiltedCard';
 import CurvedLoop from './CurvedLoop';
-import VariableProximity from './VariableProximity';
 import ShootingStar from './ShootingStar';
 import TargetCursor from './TargetCursor';
 import ScrollFloat from './ScrollFloat';
@@ -28,12 +27,7 @@ function App() {
 
 
 
-  const projectsRef = useRef(null);
   const spinnerRef = useRef(null);
-  const frontendRef = useRef(null);
-  const backendRef = useRef(null);
-  const aiRef = useRef(null);
-  const mobileRef = useRef(null);
   const techStackRef = useRef(null);
 
   useEffect(() => {
@@ -183,7 +177,7 @@ function App() {
               {modalContent.video && (
                 <div className="modal-video-container">
                   <video 
-                    src={modalContent.video} 
+                    src={modalContent.video}
                     controls 
                     className="modal-video"
                     autoPlay={false}
@@ -449,7 +443,7 @@ function App() {
                             setModalContent({
                               title: '乐呼',
                               description: '基于<b>React Native</b>开发的跨平台app, 是一款以社区联结为基础的新型助老平台，用户终端为移动端。\n\n✦ AI Agent + AR\n\ngithub地址：<a href="https://github.com/zzzzzin365/OurEchoes.git" target="_blank" style="color: white;">https://github.com/zzzzzin365/OurEchoes.git</a>',
-                              video: '/乐呼.mp4',
+                              video: 'https://github.com/zzzzzin365/Sleeping_personalwebsite/releases/download/v2/default.mp4',
                               image1: '/p2_more1.png',
                               image2: '/p2_more2.png'
                             });
@@ -499,7 +493,7 @@ function App() {
                             setModalContent({
                               title: '智能排课系统',
                               description: '基于<b>遗传算法</b>与<b>强化学习</b>开发的智能排课系统， 目的是为了减轻高校管理员的排课负担。',
-                              video: '/p4项目演示视频.mp4',
+                              video: 'https://github.com/zzzzzin365/Sleeping_personalwebsite/releases/download/v2-4/p4.mp4',
                               image: '/p4_more1.png',
                               image2: '/p4_more2.png'
                             });
