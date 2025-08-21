@@ -1,0 +1,1262 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #141414;
+  color: white;
+}
+
+.App {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+/* 导航栏样式 */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 1000;
+  padding: 1rem 0;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.nav-menu li a:hover {
+  color: #141414;
+  background: #ffffff;
+}
+
+/* 响应式导航栏 */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 1rem;
+  }
+  
+  .nav-menu {
+    gap: 1rem;
+  }
+  
+  .nav-menu li a {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* 开屏动画样式 */
+.splash-screen {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.splash-screen.fade-out {
+  opacity: 0;
+}
+
+/* 主内容区域 */
+.main-content {
+  position: relative;
+  min-height: 100vh;
+  background: #141414;
+}
+
+/* 粒子背景 */
+.particles-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* 内容覆盖层 */
+.content-overlay {
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(1px);
+}
+
+/* 主要内容区域 */
+.main-sections {
+  padding-top: 120px;
+}
+
+/* 英雄区域 */
+.hero-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 粒子球体背景 */
+.particle-sphere-background {
+  position: fixed;
+  top: 1;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;  /* 显示在卡片上方 */
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.particle-sphere-background canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h1,
+.hero-title {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #cccccc;
+}
+
+
+/* 内容区域 */
+.content-section {
+  padding: 5rem 0;
+  border-bottom: none; /* 移除横线 */
+}
+
+/* 确保“关于我”与“我的项目”之间至少一屏距离，便于流星触发 */
+#about {
+  padding-bottom: 3rem;
+}
+
+/* 项目部分背景改为透明；技能和页脚保持浅色 */
+#skills,
+.footer {
+  
+  color: #302C1A;
+}
+
+#projects {
+  background-color: transparent;
+}
+
+/* 项目部分恢复常规布局 */
+#projects {
+  position: relative;
+  z-index: 2;
+  margin-top: 0;
+  opacity: 1;
+  transition: none;
+}
+
+/* 流星滚动锚点：在 about 与 projects 之间插入 80vh 高度，稳定 ScrollTrigger start/end */
+/* 移除流星锚点样式 */
+
+/* 项目部分及以后的文字颜色 */
+#projects h2,
+#projects h3,
+#projects p,
+#projects span,
+#skills h2,
+#skills h3,
+#skills span,
+.footer p,
+.footer a {
+  color: #302C1A;
+}
+
+/* 删除多层穿梭背景相关样式（保留流星动画组件） */
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative; /* 添加相对定位，使其成为定位上下文 */
+}
+
+.content-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* 关于我部分 */
+.about-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #cccccc;
+}
+
+.image-placeholder {
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.image-placeholder span {
+  color: #888;
+  font-size: 1.1rem;
+}
+
+/* 新的关于我部分样式 - 紧凑布局 */
+.about-content-new {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 改回居中对齐 */
+  gap: 2rem;
+  padding: 50px 50px 50px 50px;
+}
+
+.about-avatar {
+  flex-shrink: 0;
+}
+
+.avatar-image {
+  width: 120px; /* 稍微减小头像尺寸 */
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.about-info {
+  flex: 1;
+}
+
+.about-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-info li {
+  font-size: 1rem; /* 稍微减小字体 */
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+  color: #ffffff;
+  padding-left: 0;
+}
+
+.about-info li:before {
+  content: "•";
+  color: #ffffff;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.about-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-list li {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ffffff;
+  padding-left: 0;
+}
+
+/* 项目部分：整体就是卡片，居中展示 */
+#projects {
+  display: flex;
+  align-items: flex-start; /* 顶部对齐 */
+  justify-content: center;
+  min-height: 100vh;
+  height: 100vh;
+  padding: 2rem 0 0; /* 顶部留白 */
+  will-change: transform, opacity;
+}
+
+/* slide-in 动画：从下往上淡入 */
+.slide-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: transform 700ms ease, opacity 700ms ease;
+}
+
+.slide-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+/* 弧形文字区域样式 */
+.curved-loop-section {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  position: relative;
+  z-index: 5;
+}
+
+/* 3D旋转动画组件样式 - From Uiverse.io by AqFox */
+.spinner-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 0;
+  min-height: 10vh;
+  margin-top: -9rem;
+}
+
+.spinner {
+  width: 44px;
+  height: 44px;
+  animation: spinner-y0fdc1 3s infinite ease;
+  transform-style: preserve-3d;
+  /* 确保transform不会被覆盖 */
+  transform-origin: center center;
+}
+
+.spinner > div {
+  background-color: rgba(186, 199, 229, 0.2);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  border: 2px solid #ffffff;
+}
+
+.spinner div:nth-of-type(1) {
+  transform: translateZ(-22px) rotateY(180deg);
+}
+
+.spinner div:nth-of-type(2) {
+  transform: rotateY(-270deg) translateX(50%);
+  transform-origin: top right;
+}
+
+.spinner div:nth-of-type(3) {
+  transform: rotateY(270deg) translateX(-50%);
+  transform-origin: center left;
+}
+
+.spinner div:nth-of-type(4) {
+  transform: rotateX(90deg) translateY(-50%);
+  transform-origin: top center;
+}
+
+.spinner div:nth-of-type(5) {
+  transform: rotateX(-90deg) translateY(50%);
+  transform-origin: bottom center;
+}
+
+.spinner div:nth-of-type(6) {
+  transform: translateZ(22px);
+}
+
+@keyframes spinner-y0fdc1 {
+  0% {
+    transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);
+  }
+
+  50% {
+    transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);
+  }
+
+  100% {
+    transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
+  }
+}
+
+/* 确保spinner的transform优先级 */
+.spinner {
+  transform-style: preserve-3d !important;
+}
+
+/* 项目容器样式 */
+.projects-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 0;
+  flex-wrap: wrap;
+}
+
+/* 卡片容器样式 */
+.cards-container {
+  display: flex;
+  gap: 4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 900px;
+  position: relative;
+  margin-top: 6rem;
+  row-gap: 6rem;
+}
+
+/* 项目卡片样式 - From Uiverse.io by gharsh11032000 */
+.card {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: rgba(242, 242, 242, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 最后两张卡片的白色背景样式 */
+.card:nth-last-child(-n+2) {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+/* 最后两张卡片的标题字体大小 */
+.card:nth-last-child(-n+2) .card__title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* 最后两张卡片悬停时背景透明 */
+.card:nth-last-child(-n+2):hover {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.card-image {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.card__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  padding-bottom: 70px;
+  box-sizing: border-box;
+  background-color: rgba(242, 242, 242, 0.95);
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .card__content {
+  transform: rotateX(0deg);
+}
+
+.card__title {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 700;
+}
+
+.card:hover .card-image {
+  scale: 0;
+}
+
+.card__description {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #777;
+  line-height: 1.4;
+}
+
+/* 按钮样式 - From Uiverse.io by zjssun */
+.button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background-color: #0b0715;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.button:active {
+  /* 移除弹跳效果 */
+}
+
+.button:before,
+.button:after {
+  position: absolute;
+  content: "";
+  width: 150%;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: -1000;
+  background-repeat: no-repeat;
+}
+
+.button:hover:before {
+  top: -70%;
+  background-image: radial-gradient(circle, #3e3e3f 20%, transparent 20%),
+    radial-gradient(circle, transparent 20%, #3e3e3f 20%, transparent 30%),
+    radial-gradient(circle, #3e3e3f 20%, transparent 20%),
+    radial-gradient(circle, #3e3e3f 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #3e3e3f 15%, transparent 20%),
+    radial-gradient(circle, #3e3e3f 20%, transparent 20%),
+    radial-gradient(circle, #3e3e3f 20%, transparent 20%),
+    radial-gradient(circle, #3e3e3f 20%, transparent 20%),
+    radial-gradient(circle, #3e3e3f 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+    10% 10%, 18% 18%;
+  background-position: 50% 120%;
+  animation: greentopBubbles 0.6s ease;
+}
+
+@keyframes greentopBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
+  }
+
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
+  }
+
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+.button:hover::after {
+  bottom: -70%;
+  background-image: radial-gradient(circle, #3e3e3f 20%, transparent 20%),
+    radial-gradient(circle, #3e3e3f 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #3e3e3f 15%, transparent 20%),
+    radial-gradient(circle, #3e3e3f 20%, transparent 20%),
+    radial-gradient(circle, #3e3e3f 20%, transparent 20%),
+    radial-gradient(circle, #3e3e3f 20%, transparent 20%),
+    radial-gradient(circle, #3e3e3f 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+  background-position: 50% 0%;
+  animation: greenbottomBubbles 0.6s ease;
+}
+
+@keyframes greenbottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+      70% -10%, 70% 0%;
+  }
+
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
+  }
+
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+/* 弹窗样式 - From Uiverse.io by EmmaxPlay */
+.modal-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 999999 !important;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  /* 确保弹窗不受页面滚动影响 */
+  overflow: hidden !important;
+  /* 确保弹窗在最顶层 */
+  pointer-events: auto !important;
+  /* 重置所有可能的继承样式 */
+  margin: 0 !important;
+  padding: 0 !important;
+  /* 添加背景虚化效果 */
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+  /* 强制弹窗显示在最上层 */
+  position: fixed !important;
+  z-index: 99999 !important;
+}
+
+.modal-card {
+  width: 800px;
+  height: 500px;
+  background-color: #525252;
+  border-radius: 8px;
+  z-index: 1000000 !important;
+  /* 淡入效果 */
+  transform: translateY(30px) !important;
+  transition: all 0.4s ease-out !important;
+  /* 确保弹窗卡片完全居中 */
+  position: relative !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  /* 重置所有可能的继承样式 */
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.modal-overlay.show .modal-card {
+  /* 淡入效果 */
+  transform: translateY(0) !important;
+  /* 确保弹窗卡片在最上层 */
+  z-index: 100000 !important;
+}
+
+.modal-tools {
+  display: flex;
+  align-items: center;
+  padding: 9px;
+}
+
+.modal-circle {
+  padding: 0 4px;
+}
+
+.modal-box {
+  display: inline-block;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  padding: 1px;
+  border-radius: 50%;
+}
+
+.modal-red {
+  background-color: #ff605c;
+}
+
+.modal-yellow {
+  background-color: #ffbd44;
+}
+
+.modal-green {
+  background-color: #00ca4e;
+}
+
+.modal-content {
+  padding: 20px;
+  color: white;
+  text-align: center;
+  /* 添加滚动功能 */
+  max-height: 400px;
+  overflow-y: auto;
+  /* 自定义滚动条样式 */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* Webkit浏览器的滚动条样式 */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.modal-image-container {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background: #ffffff;
+  padding: 20px;
+}
+
+.modal-image.transparent-bg {
+  background: transparent;
+  padding: 0;
+}
+
+.modal-video-container {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-video {
+  max-width: 80%;
+  max-height: 400px;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background: #000;
+}
+
+.modal-tech-section {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.modal-tech-title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.modal-description {
+  text-align: left;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+
+/* 技能部分 */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.skill-category {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.skill-category h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: #00d4ff;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.skill-list span {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.skill-list span:hover {
+  background: rgba(0, 212, 255, 0.2);
+  border-color: rgba(0, 212, 255, 0.3);
+  color: #00d4ff;
+}
+
+
+/* 技术栈部分样式 */
+.tech-stack-section {
+  background: rgba(20, 20, 20, 0.8);
+  padding: 0 0 2rem 0;
+}
+
+.tech-stack-curved-text {
+  color: #00d4ff;
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 1rem 0 1rem 0;
+}
+
+.variable-proximity-demo {
+  color: #ffffff;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: center;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.tech-category {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  min-width: 250px;
+  transition: all 0.3s ease;
+}
+
+.tech-category:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.3);
+  transform: translateY(-5px);
+}
+
+.tech-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.tech-item {
+  background: rgba(0, 212, 255, 0.2);
+  color: #00d4ff;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.tech-item:hover {
+  background: rgba(0, 212, 255, 0.3);
+  border-color: rgba(0, 212, 255, 0.5);
+  transform: scale(1.05);
+}
+
+/* 页脚 */
+.footer {
+  background: rgba(20, 20, 20, 0.9);
+  padding: 3rem 0 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.social-links a {
+  color: #888;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #00d4ff;
+}
+
+.footer-text {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 1rem;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+  
+  .section-container {
+    padding: 0 1rem;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* 关于我卡片的响应式调整 */
+  .about-card {
+    margin: 0 1rem;
+    min-height: 280px;
+    max-width: 90%;
+  }
+  
+  .about-content-new {
+    flex-direction: column;
+    margin-left: 0;
+    padding: 60px 10px 20px; /* 上方留出圆形文字空间 */
+    text-align: center;
+  }
+  
+  .circular-text-container {
+    width: 80px;
+    height: 80px;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .avatar-image {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .about-info li {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .content-section h2 {
+    font-size: 2rem;
+  }
+  
+  .content-section {
+    padding: 3rem 0;
+  }
+  
+  .project-card,
+  .skill-category,
+  .contact-form {
+    padding: 1.5rem;
+  }
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #141414;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 212, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 213, 255, 0);
+}
+
+/* 关于我卡片 */
+.about-card {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  padding: 50px 50px 80px 50px;
+  position: relative;
+  left: 300px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  max-width: 600px; /* 减小最大宽度 */
+  margin: 0 auto;
+  z-index: 1;
+  overflow: hidden;
+  min-height: 300px; /* 减小最小高度 */
+}
+
+/* 圆形文字容器 - 移到卡片外部 */
+.circular-text-container {
+  position: absolute;
+  top: -70px;
+  left: 240px;
+  z-index: 20;
+  width: 100px;
+  height: 100px;
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* 加载动画 */
+.loading-spinner {
+  border: 3px solid rgba(0, 212, 255, 0.1);
+  border-top: 3px solid #00d4ff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 移动端菜单 */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 隐藏滚动条 */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+  /* 新的项目按钮样式 - From Uiverse.io by zjssun */
+  .project-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 22px;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    background-color: #7d2ae8;
+    transition: all 0.2s ease;
+    z-index: 10;
+  }
+
+.project-btn:active {
+  transform: scale(0.96);
+}
+
+.project-btn:before,
+.project-btn:after {
+  position: absolute;
+  content: "";
+  width: 150%;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: -1000;
+  background-repeat: no-repeat;
+}
+
+.project-btn:hover:before {
+  top: -70%;
+  background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, transparent 20%, #7d2ae8 20%, transparent 30%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+    10% 10%, 18% 18%;
+  background-position: 50% 120%;
+  animation: greentopBubbles 0.6s ease;
+}
+
+@keyframes greentopBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
+  }
+
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
+  }
+
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+.project-btn:hover::after {
+  bottom: -70%;
+  background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+  background-position: 50% 0%;
+  animation: greenbottomBubbles 0.6s ease;
+}
+
+@keyframes greenbottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+      70% -10%, 70% 0%;
+  }
+
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
+  }
+
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}

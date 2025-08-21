@@ -1,0 +1,48 @@
+.scroll-float {
+  overflow: hidden;
+  text-align: left;
+}
+
+.scroll-float-text {
+  display: inline-block;
+  font-size: 4rem !important;
+  font-weight: 700 !important;
+  text-align: left;
+  line-height: 1;
+}
+
+/* 确保h2标签的默认样式被覆盖 */
+.scroll-float h2.scroll-float-text,
+h2.scroll-float .scroll-float-text {
+  font-size: 4rem !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 最直接的选择器，确保字体大小被应用 */
+h2.scroll-float .scroll-float-text,
+.scroll-float h2 .scroll-float-text,
+.scroll-float .scroll-float-text {
+  font-size: 4rem !important;
+  font-weight: 700 !important;
+}
+
+.char {
+  display: inline-block;
+}
+
+/* 自定义样式类 */
+.scroll-float.small-text .scroll-float-text {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #cccccc !important;
+  text-align: left;
+}
+
+/* 确保小文字容器正确显示 */
+.scroll-float.small-text {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #cccccc !important;
+}

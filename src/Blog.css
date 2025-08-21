@@ -1,0 +1,168 @@
+.blog-page {
+  min-height: 100vh;
+  background-color: #F0EFEB;
+  padding: 2rem;
+  position: relative;
+}
+
+.blog-content {
+  color: #666;
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 0;
+  padding-top: 8rem;
+}
+
+.blog-content svg {
+  transform: scale(1.2);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.blog-content svg:hover {
+  transform: scale(1.5);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.back-button {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+button {
+  background: #302C1A;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #302C1A;
+}
+
+.button {
+  cursor: pointer;
+  position: relative;
+  padding: 10px 24px;
+  font-size: 18px;
+  color: #302C1A;
+  border: 2px solid #302C1A;
+  border-radius: 34px;
+  background-color: transparent;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  overflow: hidden;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: #302C1A;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.button:hover::before {
+  scale: 3;
+}
+
+.button:hover {
+  color: #ffffff;
+  scale: 1.1;
+  box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
+}
+
+.button:active {
+  scale: 1;
+}
+
+/* SplitText 样式 */
+.split-parent {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.5;
+}
+
+.split-parent .split-char {
+  display: inline-block;
+  white-space: pre;
+}
+
+/* Social Icons styles */
+.container {
+  display: flex;
+  column-gap: 28px;
+}
+
+.icon {
+  display: inline-flex;
+  width: 60px;
+  height: 60px;
+  text-decoration: none;
+  font-size: 25px;
+  outline: 2px solid white;
+  border-radius: 50%;
+  transition-property: outline-offset, outline-color, background-color;
+  transition-duration: 0.25s;
+  color: white;
+}
+
+.icon:hover {
+  outline-offset: 4px;
+}
+
+.icon svg {
+  margin: auto;
+  width: 31px;
+}
+
+.icon-instagram:hover {
+  background-color: red;
+  outline-color: red;
+}
+
+.icon-dis:hover {
+  background-color: rgb(76, 0, 255);
+  outline-color: rgb(76, 0, 255);
+}
+
+.icon-github:hover {
+  background-color: #555555;
+  outline-color: #555555;
+}
+
+.icon-in:hover {
+  background-color: #0a66c2;
+  outline-color: #0a66c2;
+}
+
+.icon:hover svg {
+  animation: shake 0.25s;
+}
+
+@keyframes shake {
+  10% {
+    transform: rotate(15deg);
+  }
+  20% {
+    transform: rotate(-15deg);
+  }
+}
+

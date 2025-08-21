@@ -1,0 +1,67 @@
+/* 流星容器（旋转45°方向） */
+.shooting-star {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 2px;
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0;
+}
+
+/* 主尾巴 */
+.tail {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.9));
+  box-shadow: 0 0 6px rgba(255,255,255,0.6);
+}
+
+/* 拖影尾巴（克隆版） */
+.tail-clone {
+  position: fixed;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.8));
+  transform: rotate(45deg);
+  pointer-events: none;
+  z-index: 998;
+}
+
+/* 流星头部 */
+.head {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  transform: rotate(-45deg);
+}
+
+/* 光晕层 */
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(255,255,200,0.8), rgba(255,255,200,0) 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 粒子 */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+}
