@@ -177,12 +177,31 @@ function App() {
               {modalContent.video && (
                 <div className="modal-video-container">
                   <video 
-                    src={modalContent.video}
                     controls 
                     className="modal-video"
                     autoPlay={false}
                     muted={false}
+                    preload="metadata"
+                    onError={(e) => {
+                      console.error('视频加载失败:', e);
+                      // 如果GitHub链接失败，尝试使用本地文件作为备选
+                      if (e.target.src.includes('github.com')) {
+                        const localVideo = e.target.src.replace(
+                          'https://github.com/zzzzzin365/Sleeping_personalwebsite/releases/download/v2-4/p4.mp4',
+                          '/p4项目演示视频.mp4'
+                        ).replace(
+                          'https://github.com/zzzzzin365/Sleeping_personalwebsite/releases/download/v2/default.mp4',
+                          '/乐呼.mp4'
+                        );
+                        e.target.src = localVideo;
+                      }
+                    }}
                   >
+                    <source src={modalContent.video} type="video/mp4" />
+                    <source 
+                      src={modalContent.video.includes('p4.mp4') ? '/p4项目演示视频.mp4' : '/乐呼.mp4'} 
+                      type="video/mp4" 
+                    />
                     您的浏览器不支持视频播放。
                   </video>
                 </div>
