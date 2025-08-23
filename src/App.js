@@ -763,6 +763,7 @@ function App() {
                     <div style={{
                       color: '#ffffff',
                       fontSize: '0.9rem',
+                      
                       fontWeight: '500'
                     }}>
                       HTML5
