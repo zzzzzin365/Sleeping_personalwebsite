@@ -22,7 +22,7 @@ function Blog() {
       
       <div className="social-icons" style={{
         position: 'absolute',
-        top: '40px',
+        top: '32px',
         right: '20px',
         zIndex: 1000
       }}>
