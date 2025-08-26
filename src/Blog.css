@@ -113,8 +113,8 @@ button:hover {
 
 .icon {
   display: inline-flex;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   text-decoration: none;
   font-size: 25px;
   outline: 2px solid #302C1A;
@@ -122,6 +122,11 @@ button:hover {
   transition-property: outline-offset, outline-color, background-color;
   transition-duration: 0.25s;
   color: #53503f;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon:hover {
@@ -131,8 +136,8 @@ button:hover {
 
 .icon svg {
   margin: auto;
-  width: 24px;
-  height: 24px;
+  width: 48px;
+  height: 48px;
 }
 
 .icon-instagram:hover {
