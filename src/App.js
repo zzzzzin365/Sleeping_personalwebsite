@@ -145,7 +145,7 @@ function App() {
       <nav className="navbar">
         <div className="nav-container">
           <div className="nav-logo">
-            <span className="cursor-target">Portfolio</span>
+            <img src="/avainweb.png" alt="avainweb" className="nav-logo-image" />
           </div>
                       <ul className="nav-menu">
               <li><a href="#blog" className="cursor-target" onClick={(e) => handleNavClick(e, 'blog')}>blog</a></li>

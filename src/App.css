@@ -43,9 +43,15 @@ body {
 }
 
 .nav-logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #ffffff;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-logo-image {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
 }
 
 .nav-menu {
