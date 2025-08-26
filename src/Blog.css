@@ -122,9 +122,6 @@ button:hover {
   transition-property: outline-offset, outline-color, background-color;
   transition-duration: 0.25s;
   color: #53503f;
-  background: transparent;
-  border: none;
-  cursor: pointer;
   align-items: center;
   justify-content: center;
 }
@@ -136,8 +133,8 @@ button:hover {
 
 .icon svg {
   margin: auto;
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
 }
 
 .icon-instagram:hover {
