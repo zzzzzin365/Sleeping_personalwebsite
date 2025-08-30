@@ -1060,7 +1060,7 @@ function App() {
             <div className="footer-content">
                <p style={{ margin: '0.5rem 0' }}>&copy; 2025 Huitian Chen. All rights reserved.</p>
                <p style={{ color: 'white', margin: '0.5rem 0' }}>
-                 <strong>Email:</strong> <span style={{color: 'white', textDecoration: 'underline', cursor: 'pointer'}} onClick={() => navigator.clipboard.writeText('cht_se2027@163.com')}>cht_se2027@163.com (点击复制)</span>
+                 <strong>Email:</strong> <span style={{color: 'white', textDecoration: 'underline', cursor: 'pointer'}} onClick={() => navigator.clipboard.writeText('cht_se2027@163.com')}>cht_se2027@163.com</span>
                </p>
                <p style={{ color: 'white', margin: '0.5rem 0' }}>
                  <strong>Github:</strong> <a href="https://github.com/zzzzzin365?tab=repositories" target="_blank" rel="noopener noreferrer" style={{color: 'white', textDecoration: 'underline'}}>@zzzzzin365</a>
