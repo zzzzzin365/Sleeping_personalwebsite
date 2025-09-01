@@ -461,7 +461,7 @@ function App() {
                           onClick={() => {
                             setModalContent({
                               title: '乐呼',
-                              description: '基于<b>React Native</b>开发的跨平台app, 是一款以社区联结为基础的新型助老平台，用户终端为移动端。\n\n✦ AI Agent + AR\n\ngithub地址：',
+                              description: '基于<b>React Native</b>开发的跨平台app, 是一款以社区联结为基础的新型助老平台，用户终端为移动端。\n\n✦ AI Agent + AR\n\ngithub地址：<a href="https://github.com/zzzzzin365/Huban_V2.git" target="_blank" style="color: white;">https://github.com/zzzzzin365/Huban_V2.git</a>',
                               video: 'https://github.com/zzzzzin365/Sleeping_personalwebsite/releases/download/v2/default.mp4',
                               image1: '/p2_more1.png',
                               image2: '/p2_more2.png'
@@ -487,7 +487,7 @@ function App() {
                           onClick={() => {
                             setModalContent({
                               title: 'DeepPaper',
-                              description: '基于<b>Vue</b>与<b>NLP等AI技术</b>开发的智能论文阅读与管理平台，用户可通过本平台实现智能论文管理与阅读、获得个性化咨询、文献推荐。\n\n✦ NLP + ML + RAG + OCR\n\ngithub地址：',
+                              description: '基于<b>Vue</b>与<b>NLP等AI技术</b>开发的智能论文阅读与管理平台，用户可通过本平台实现智能论文管理与阅读、获得个性化咨询、文献推荐。\n\n✦ NLP + ML + RAG + OCR\n\ngithub地址：<a href="https://github.com/zzzzzin365/DeepPaper.git" target="_blank" style="color: white;">https://github.com/zzzzzin365/DeepPaper.git</a>',
                               image: '/p3_more.png'
                             });
                             setShowModal(true);
@@ -537,7 +537,7 @@ function App() {
                           onClick={() => {
                             setModalContent({
                               title: 'Coffee Shop',
-                              description: '基于<b>Uniapp</b>开发的Coffee Shop 小程序。\n\n✦ 技术栈描述\n\ngithub地址：',
+                              description: '基于<b>Uniapp</b>开发的Coffee Shop 小程序。\n\ngithub地址:<a href="https://github.com/zzzzzin365/CoffeeShop.git" target="_blank" style="color: white;">https://github.com/zzzzzin365/CoffeeShop.git</a>',
                               image: '/p7_more.png'
                             });
                             setShowModal(true);
