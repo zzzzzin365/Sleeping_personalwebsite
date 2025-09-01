@@ -461,7 +461,7 @@ function App() {
                           onClick={() => {
                             setModalContent({
                               title: '乐呼',
-                              description: '基于<b>React Native</b>开发的跨平台app, 是一款以社区联结为基础的新型助老平台，用户终端为移动端。\n\n✦ AI Agent + AR\n\ngithub地址：<a href="https://github.com/zzzzzin365/Huban_V2.git" target="_blank" style="color: white;">https://github.com/zzzzzin365/Huban_V2.git</a>',
+                              description: '基于<b>React Native</b>开发的跨平台app, 是一款以社区联结为基础的新型助老平台，用户终端为移动端。\n\n✦ AI Agent + AR\n\ngithub地址：<a href="https://github.com/zzzzzin365/Huban_V2.git" target="_blank" style="color: white;">https://github.com/zzzzzin365/Huban_V2.0.git</a>',
                               video: 'https://github.com/zzzzzin365/Sleeping_personalwebsite/releases/download/v2/default.mp4',
                               image1: '/p2_more1.png',
                               image2: '/p2_more2.png'
